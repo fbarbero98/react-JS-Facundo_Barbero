@@ -36,17 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fbarbero98/react-JS-Facundo_Barbero.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fbarbero98/react-JS-Facundo_Barbero/issues"
-  },
-  "homepage": "https://github.com/fbarbero98/react-JS-Facundo_Barbero#readme"
+  }
 }
