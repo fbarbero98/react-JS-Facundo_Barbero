@@ -9,7 +9,7 @@ function App() {
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="#inicio"><img src={logo} width="40 rem" height="40 rem"/>Logo</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
