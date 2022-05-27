@@ -3,11 +3,12 @@ import React from 'react'
 
 export default function ListadoMostrar({ alumnos }) {
   console.log(alumnos)
+  const { nombre, edad } = alumno
   return (
     <>
-      {alumnos.map((alumno, index) => {
-        const { nombre, edad } = alumno
-        return <p key={index}>Nombre del alumno : {nombre}, Edad del alumno : {edad}</p>
+      {alumnos.map((alumno) => {
+       
+        return <>Nombre del alumno : {nombre}, Edad del alumno : {edad}</p>
       })}
     </>
   );
