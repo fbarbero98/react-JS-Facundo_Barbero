@@ -1,5 +1,6 @@
 import NavBar from'./components/NavBar.jsx';
 import ListadoContainer from './components/ListadoContainer.jsx';
+import ItemListContainer from './components/ItemListContainer.jsx';
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
 <>
   <NavBar /> 
   <ListadoContainer />
+  <ItemListContainer greeting ="Hola como estas"/>
 </>);
 }
 
