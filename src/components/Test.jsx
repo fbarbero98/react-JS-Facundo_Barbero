@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function Test({ desde }) {
     /*let x = 0  */
     console.log("render")
-    const [x, setX] = useState(0); //Este es el hook, devuelve el valor y una funcion para poder cambiar el valor
+    const [x, setX] = useState(desde); //Este es el hook, devuelve el valor y una funcion para poder cambiar el valor
     return (
 
         <>
