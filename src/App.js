@@ -7,7 +7,7 @@ function App() {
   return (
 <>
   <NavBar /> 
-  <Test  desde={0}/>
+  <Test  desde={0} hasta={5} />
 </>);
 }
 
