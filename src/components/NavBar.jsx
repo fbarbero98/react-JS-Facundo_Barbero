@@ -1,4 +1,5 @@
 import logo from '.././logo.svg';
+import CartWidget from './CartWidget';
 
 
 function NavBar() {
@@ -15,9 +16,6 @@ function NavBar() {
               <a className="nav-link active" aria-current="page" href="#inicio">Inicio</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#carrito">Carrito</a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="#nosotros">Nosotros</a>
             </li>
             <li className="nav-item dropdown">
@@ -32,6 +30,9 @@ function NavBar() {
                 <li><a className="dropdown-item" href="#item4">Item 4</a></li>
                 <li><a className="dropdown-item" href="#item5">Item 5</a></li>
               </ul>
+            </li>
+            <li className="nav-item">
+            <a className="nav-link" href="#carrito"> <CartWidget items={4}/></a>
             </li>
           </ul>
         </div>
