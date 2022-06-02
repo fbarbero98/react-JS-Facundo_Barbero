@@ -9,18 +9,20 @@ export default function TestPromesas() {
         const pagara = new Promise ((resolve , reject) => { //Esta es la forma de hacer una promesa
         setTimeout(() => {
             
-            resolve('Salio bien la promesa') //Esto devuelve si la promesa se cumple
+            reject('Salio mal la promesa') //Esto devuelve si la promesa se cumple
         }, 2000);
         })
-        console.log(pagara) //Este console.log se va a ver en pending xq no se completo todavia
-        setTimeout(() => {
-            console.log(pagara) //Este console.log se va a ver como fulfilled
-        }, 6000); 
 
 
-        pagara.then((result) =>{ //Cuando se resuelva, fijate que resultado hay y mostra
+        pagara
+        
+        .then((result) =>{
+            console.log(result) //No se ve porque solo hay un reject
+        })
+        
+        .catch((error) =>{ //Cuando se resuelva, fijate que resultado hay y mostra
             
-            console.log("El console.log de 'result' es " + result); //Se ve aca lo que dice en el resolve
+            console.log("El console.log de 'catch' es " + error); //Se ve aca lo que dice en el reject
             console.log("El console.log de 'pagara' es " + pagara) //se ve aca el object promise (Que seria la promesa)
         }) 
     }, []) //Esto es para que solo se ejecute una sola vez
