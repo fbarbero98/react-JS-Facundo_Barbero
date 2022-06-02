@@ -27,7 +27,6 @@ export default function TestPromesas() {
         pagara
             .then((result) => {
                 setResultado(result);
-                setLoading(false)
                 console.log('entro el then');
             })
             .catch((error) => { //Cuando se resuelva, fijate que resultado hay y mostra
@@ -35,6 +34,9 @@ export default function TestPromesas() {
                 setLoading(false);
                 console.log(error);
                 console.log('entro el catch')
+            })
+            .finally(() =>{
+                setLoading(false)
             })
     }, []) //Esto es para que solo se ejecute una sola vez
 
