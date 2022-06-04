@@ -31,9 +31,7 @@ function NavBar() {
                 <li><a className="dropdown-item" href="#item5">Item 5</a></li>
               </ul>
             </li>
-            <li className="nav-item">
             <a className="nav-link" href="#carrito"> <CartWidget items={4}/></a>
-            </li>
           </ul>
         </div>
       </div>
