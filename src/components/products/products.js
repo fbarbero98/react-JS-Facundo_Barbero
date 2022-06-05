@@ -1,4 +1,4 @@
-const productos = [
+const productosJS = [
     {id: 0, cosa: "Teclado", precio: 5000, specs : "Teclado gamer Redragon Kumara K552 QWERTY Outemu Blue español latinoamérica color negro con luz RGB" , imagen : "./imagenes/teclado.jpg"},
     
     {id: 1, cosa: "Mouse", precio: 3000, specs : "Mouse Gamer Redragon Centrophorus 2 601-RGB USB - Negro" , imagen : "./imagenes/mouse.jpg"},
@@ -13,4 +13,4 @@ const productos = [
     
     ]
 
-export default productos
+export default productosJS
