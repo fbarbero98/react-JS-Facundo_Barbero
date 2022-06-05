@@ -13,7 +13,7 @@ function App() {
   return (
     <div className='App'>
       <NavBar />
-      <ItemListContainer greeting={"Hola"} tutora={"a todos"} mensaje={"bienvenidos a mi e-commerce"} />
+      <ItemListContainer />
       <ItemCount inicial={1} stock={5} onAdd={onAdd} />
     </div>);
 }
