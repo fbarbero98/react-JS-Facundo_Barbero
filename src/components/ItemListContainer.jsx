@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import productos from './products/products'
 
 export default function ItemListContainer({ greeting, tutora, mensaje }) {
 
-  const [productos, setProductos] = useState(["inicial"])
+  const [productoss, setProductoss] = useState(["inicial"])
 
   useEffect(() => {
-    fetch('./products/products.json')
-      .then(res => JSON.stringify(res))
+    fetch("products/products.js")
+      .then(res => res.json())
       .then(res => console.log(res))
       .catch(error => console.error(error))
   },[])
-console.log(productos)
+  console.log(productos)
 
 
   return (
