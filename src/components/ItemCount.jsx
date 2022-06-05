@@ -25,7 +25,7 @@ export default function ItemCount({ inicial, stock, onAdd }) {
     setCount(inicial);
   };
   return (
-    <div className>
+    <div>
       <button type="button" className="js-cart-quantity-btn cart-item-btn btn" onClick={resta}>-</button>
       <span>{count}</span>
       <button type="button" className="js-cart-quantity-btn cart-item-btn btn" onClick={suma}>+</button>
