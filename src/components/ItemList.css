@@ -1,0 +1,7 @@
+.gridAuto{
+
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 30rem;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,15rem),1fr));
+}
