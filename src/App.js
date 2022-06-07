@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Test from './components/Test.jsx';
 import TestPromesas from './components/TestPromesas.jsx';
+import TestAPI from './components/TestAPI.jsx';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
   <NavBar /> 
  {/*<Test  desde={0} hasta={5} />*/} 
   <TestPromesas />
+  <TestAPI />
 </>);
 }
 
