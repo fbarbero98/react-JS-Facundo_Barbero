@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 export default function TestAPI() {
-  useEffect(() => {
-    fetch("https://api.coder.com.ar/user/1234") //El fetch no responde directamente con el resultado, sino que a su vez viene con otra promesa.
+ 
+  
+  const [poke, setPoke] = useState([])
+  useEffect( () => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=2&offset=0") //El fetch no responde directamente con el resultado, sino que a su vez viene con otra promesa.
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((response) => setPoke(response.results))
+      .catch(error => console.error('Error: ', error))
+      .finally(console.log(poke))
 
     //Es como escribir esto aca abajo:
     /*fetch('https://api.coder.com.ar/user/1234')
@@ -17,7 +19,16 @@ export default function TestAPI() {
     console.log(user);
   });
 */
+
   }, []);
 
-  return <div>TestAPI</div>;
+  
+  return (
+
+<>
+<div>{poke}</div>
+</>
+
+
+  );
 }
