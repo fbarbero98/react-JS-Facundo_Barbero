@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 
+
 export default function ItemListContainer({ props }) {
   const [productos, setProductos] = useState([]);  //Este es el estado de los productos, el cual es un array vacio hasta que se complete el fetch
   const [loading, setLoading] = useState(false); //Este es un loading, el cual esta para que se muestre mientras se hace el fetch, este loading cuando se hace el useEffect, pasa a estar en true.
