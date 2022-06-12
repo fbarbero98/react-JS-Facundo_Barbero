@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ItemDetailContainer from "./ItemDetailContainer";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer({ props }) {
@@ -31,6 +32,7 @@ export default function ItemListContainer({ props }) {
     <>
     {loading && <div className="d-flex align-items-center justify-content-center">Loading Videogames...</div>}
       <ItemList productos={productos} />
+      <ItemDetailContainer productos={productos}/>
     </>
   );
 }
