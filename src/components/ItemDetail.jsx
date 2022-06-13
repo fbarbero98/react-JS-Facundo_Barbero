@@ -1,13 +1,21 @@
 import React from "react";
 import ItemCount from './ItemCount';
+import {useParams} from 'react-router-dom'
+import { useState , useEffect } from "react";
 
 export default function ItemDetail({ producto }) {
+  const {id} = useParams;
+  const [idParam, setIdParam] = useState()
   const onAdd = (count) => {
     //Se hace una funcion para que ItemCount reciba como parametro "onAdd", la cual suma los productos al carrito
     count == 1
       ? alert(`Se agregó ${count} producto al carrito`)
       : alert(`Se agregaron ${count} productos al carrito`);
   };
+  useEffect(() => {
+    setIdParam(id)
+  }, [id])
+  
   const { name, background_image, suggestions_count } = producto; //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
   return (

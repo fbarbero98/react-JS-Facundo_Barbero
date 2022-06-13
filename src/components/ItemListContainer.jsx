@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemDetailContainer from "./ItemDetailContainer";
 import ItemList from "./ItemList";
+import {Routes, Route } from "react-router-dom";
 
 export default function ItemListContainer({ props }) {
   const [productos, setProductos] = useState([]);  //Este es el estado de los productos, el cual es un array vacio hasta que se complete el fetch
@@ -32,7 +33,6 @@ export default function ItemListContainer({ props }) {
     <>
     {loading && <div className="d-flex align-items-center justify-content-center">Loading Videogames...</div>}
       <ItemList productos={productos} />
-      <ItemDetailContainer productos={productos}/>
     </>
   );
 }
