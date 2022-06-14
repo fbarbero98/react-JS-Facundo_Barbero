@@ -7,18 +7,18 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
   const onAdd = (count) => { //Se hace una funcion para que ItemCount reciba como parametro "onAdd", la cual suma los productos al carrito
     count == 1 ? alert(`Se agregó ${count} producto al carrito`) : alert(`Se agregaron ${count} productos al carrito`)
   }
-  const {name , background_image , suggestions_count, id} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
+  const {name , imagen , precio, id} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
   console.log(name) //Ilustrativo para ver los juegos que salen
   
   return (
   <div className="card w-auto">
-    <img className="card-img-top img-thumbnail" src={background_image} alt="Card image cap" />
+    <img className="card-img-top img-thumbnail" src={imagen} alt="Card image cap" />
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
-      <p className="card-text">$ {suggestions_count}</p>
+      <p className="card-text">$ {precio}</p>
     </div>
-    <Link to='/producto/:id' className="btn btn-primary" role="button">Ver Detalles</Link>
+    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link>
     <div className="card-footer">
     <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
     </div>

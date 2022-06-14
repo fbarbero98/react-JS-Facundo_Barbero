@@ -11,10 +11,10 @@ export default function ItemListContainer({ props }) {
     setLoading(true); //Hacemos que el loading este en "true"
     const getProductos = () => {
       fetch(
-        "https://api.rawg.io/api/games?key=7b0351bed28c4404a425c47f250e3169&dates=2020-11-10,2020-11-10&platforms=18,1,7" //Aca esta e fetch, el cual recopila datos de una API
+        "games.json" //Aca esta e fetch, el cual recopila datos de una API
       )
         .then((res) => res.json()) //res es el "result" de la promesa, el cual hay que transformar en un json
-        .then((res) => setProductos(res.results)) // luego de que lo transfomramos en json, ya podemos manipular los datos de ese "result", en este caso, los datos de la API
+        .then((data) => setProductos(data)) // luego de que lo transfomramos en json, ya podemos manipular los datos de ese "result", en este caso, los datos de la API
         .catch((error) => console.error("Error:", error))
         .finally(setLoading(false)); //El finally lo que hace es que cuando se termine la promesa, el "loading" vuelva a false
         

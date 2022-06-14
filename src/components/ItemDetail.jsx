@@ -1,36 +1,35 @@
 import React from "react";
 import ItemCount from './ItemCount';
-import {useParams} from 'react-router-dom'
-import { useState , useEffect } from "react";
+import {Link} from 'react-router-dom'
 
 export default function ItemDetail({ producto }) {
-  const {id} = useParams;
-  const [idParam, setIdParam] = useState()
   const onAdd = (count) => {
     //Se hace una funcion para que ItemCount reciba como parametro "onAdd", la cual suma los productos al carrito
     count == 1
       ? alert(`Se agregó ${count} producto al carrito`)
       : alert(`Se agregaron ${count} productos al carrito`);
   };
-  useEffect(() => {
-    setIdParam(id)
-  }, [id])
   
-  const { name, background_image, suggestions_count } = producto; //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
+  const { name, imagen, precio } = producto; //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
   return (
     <>
       <div className="row g-0 border rounded overflow-hidden flex-row mb-4 h-250 position-relative">
         <div className="col p-4 d-flex flex-column position-static">
           <h3 className="mb-0">{name}</h3>
+          <hr/>
           <p className="card-text mb-auto">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
             dolorum? Quisquam dignissimos id quia laudantium labore perferendis
             ad dolore facere nulla placeat, minima exercitationem officiis,
             incidunt aut ipsum accusamus dolorem.
           </p>
-          <p>$ {suggestions_count}</p>
+          <p>$ {precio}</p>
           <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
+          <hr/>
+          <Link to='/home' className="btn btn-primary" role="button">Volver Atras</Link>
+          
+
           
         </div>
         <div className="col-auto d-block">
@@ -38,7 +37,7 @@ export default function ItemDetail({ producto }) {
             className="img-thumbnail"
             width="700"
             height="500"
-            src={background_image}
+            src={imagen}
           />
         </div>
       </div>

@@ -1,0 +1,15 @@
+[
+{"id": 0 , "name" : "Assassin's Creed Valhalla" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/934/9346092ae11bf7582c883869468171cc.jpg"},
+{"id": 1 , "name" : "Tetris Effect: Connected" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/377/3770f2c7020bcb6cc2072f073f27fb4c.jpg"},
+{"id": 2 , "name" : "The Falconeer" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/166/1663b397065c8e127fc24916ca48249b.jpg"},
+{"id": 3 , "name" : "Observer: System Redux" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/9ac/9acdbcf11b7aa2c9d629ee38f8fa8c71.jpg"},
+{"id": 4 , "name" : "Sakuna: Of Rice and Ruin" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/276/276161d772f7f3f9a4520f6e9698f8c8.jpg"},
+{"id": 5 , "name" : "Fuser" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/617/617507f14610d7767f99edf187d8483c.jpg"},
+{"id": 6 , "name" : "XIII - Remake" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/ef6/ef66bec388cd5c66d9619c62d886ebc0.jpg"},
+{"id": 7 , "name" : "Destiny 2: Beyond Light" , "precio": 3000 , "imagen": "https://media.rawg.io/media/games/905/90523047459131b5f5b75085009cbae6.jpg"},
+{"id": 8 , "name" : "Liftoff: Drone Racing" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/c8f/c8faef12da9ceedbf9fc9c1450da83e0.jpg"},
+{"id": 9 , "name" : "Speed 3: Grand Prix" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/585/585868f0723840c5cdadaa2fc4f307a5.jpg"},
+{"id": 10 , "name" : "Slide Stars" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/7dc/7dc1bd89528283932d192fb3364f209b.jpg"},
+{"id": 11 , "name" : "NBA 2K21 Next Generation" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/da2/da2093ed25a01c45f8863485e46840b1.jpg"},
+{"id": 12 , "name" : "My Universe - Cooking Star Restaurant" , "precio": 3000 , "imagen": "https://media.rawg.io/media/screenshots/4d5/4d5227eef01bd244cb0a3e9ed21e076d.jpg"}
+]
