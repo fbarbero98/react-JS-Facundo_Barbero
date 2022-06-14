@@ -7,6 +7,8 @@ import TestAPI from './components/TestAPI.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Home.jsx';
 import Contacto from './components/Contacto.jsx';
+import TestEventos from './components/TestEventos.jsx';
+import StackBlitz from './components/StackBlitz.jsx';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           <Route path='/' element={<Home />} /> {/*Este es el predeterminado */ }
           <Route path='/home' element={<Home />} />  {/*Este es particular de home */}
           <Route  path='/contacto' element={<Contacto />} />
-          <Route path='/pokes' element={<TestAPI />} />
+          <Route path='/testEventos' element={<TestEventos />} />
+          <Route path='/testStack' element={<StackBlitz />} />
+          
 
 
 
