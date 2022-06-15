@@ -1,37 +1,38 @@
 import logo from '.././logo.svg';
 import CartWidget from './CartWidget';
+import { Link } from "react-router-dom";
 
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#inicio"><img src={logo} width="40 rem" height="40 rem" alt='logo'/>Logo</a>
+        <Link to='/' className="navbar-brand" ><img src={logo} width="40 rem" height="40 rem" alt='logo'/>Logo</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDarkDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+              <Link to='/' className="nav-link active" aria-current="page">Inicio</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#nosotros">Nosotros</a>
+              <Link to='/' className="nav-link" >Nosotros</Link>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#nada" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Productos
-              </a>
+              <Link to={`/producto`} className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </Link>
               <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a className="dropdown-item" href="#item1">Item 1</a></li>
-                <li><a className="dropdown-item" href="#item2">Item 2</a></li>
-                <li><a className="dropdown-item" href="#item3">Item 3</a></li>
+                <li><Link to='/category/Aventura' className="dropdown-item" >Aventura</Link></li>
+                <li><Link to='/category/Accion' className="dropdown-item" >Accion</Link></li>
+                <li><Link to='/category/Family' className="dropdown-item" >Family</Link></li>
                 <li className="dropdown-divider"></li>
-                <li><a className="dropdown-item" href="#item4">Item 4</a></li>
-                <li><a className="dropdown-item" href="#item5">Item 5</a></li>
+                <li><Link to='/category/Arcade' className="dropdown-item">Arcade</Link></li>
+                <li><Link to='/category/Deportes' className="dropdown-item" >Deportes</Link></li>
               </ul>
             </li>
-            <a className="nav-link" href="#carrito"> <CartWidget items={4}/></a>
+            <Link to={`/producto`} className="nav-link" > <CartWidget items={4}/></Link>
           </ul>
         </div>
       </div>
