@@ -14,8 +14,14 @@ function App() {
       <NavBar />
 
       <Routes>
+        
+        {/* Se muestran todos los productos */}
       <Route path='/' element={<ItemListContainer />} />
-      <Route path='/home' element={<ItemListContainer />} />
+
+      {/* Se muestra solo los productos filtrados por categoria*/}
+      <Route path='/category/:id' element={<ItemListContainer />} />
+
+      {/* Se muestra solo un producto en particular */}
       <Route path='/producto/:id' element={<ItemDetailContainer />} />
       </Routes>
       </BrowserRouter>

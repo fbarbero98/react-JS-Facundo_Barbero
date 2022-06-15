@@ -9,7 +9,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
   }
   const {name , imagen , precio, id} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
-  console.log(name) //Ilustrativo para ver los juegos que salen
+  console.log(name) //Ilustrativo para ver el juego que sale por consola
   
   return (
   <div className="card w-auto">
@@ -18,7 +18,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
       <h5 className="card-title">{name}</h5>
       <p className="card-text">$ {precio}</p>
     </div>
-    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link>
+    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link> {/*Este link lo que hace es cambiar el :id del useParams de ItemDetailContainer, entonces, cuando el id cambia se ejecuta el useEffect */}
     <div className="card-footer">
     <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
     </div>
@@ -28,4 +28,6 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
 }
  //Y por cada producto del map se ve este return, que es una card en la que se veria su precio, foto, nombre y su botonera para añadirlo al carrito
 
- //ItemCount simula que lo añadimos al carrito, recibe como parametros los numeros inicial y de stock que nosotros definimos, y la funcion onAdd
+ //ItemCount simula que lo añadimos al carrito, recibe como parametros los numeros inicial y de stock que nosotros definimos, y la funcion onAdd.
+
+ 
