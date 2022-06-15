@@ -27,7 +27,7 @@ export default function ItemDetail({ producto }) {
           <p>$ {precio}</p>
           <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
           <hr/>
-          <Link to='/home' className="btn btn-primary" role="button">Volver Atras</Link>
+          <Link to='/' className="btn btn-primary" role="button">Volver Atras</Link>
           
 
           
