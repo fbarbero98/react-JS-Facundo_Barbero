@@ -18,9 +18,8 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
       <h5 className="card-title">{name}</h5>
       <p className="card-text">$ {precio}</p>
     </div>
-    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link> {/*Este link lo que hace es cambiar el :id del useParams de ItemDetailContainer, entonces, cuando el id cambia se ejecuta el useEffect */}
     <div className="card-footer">
-    <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
+    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link>  {/*Este link lo que hace es cambiar el :id del useParams de ItemDetailContainer, entonces, cuando el id cambia se ejecuta el useEffect */}
     </div>
   </div>
 

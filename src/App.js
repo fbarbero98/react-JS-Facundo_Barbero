@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import ItemListContainer from './components/ItemListContainer.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -23,6 +24,11 @@ function App() {
 
       {/* Se muestra solo un producto en particular */}
       <Route path='/producto/:id' element={<ItemDetailContainer />} />
+
+      {/*Muestra el carrito */}
+      <Route path='/cart' element={<Cart />} />
+
+
       </Routes>
       </BrowserRouter>
     </div>);

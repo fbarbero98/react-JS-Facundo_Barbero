@@ -1,16 +1,35 @@
 import React from "react";
 import ItemCount from './ItemCount';
 import {Link} from 'react-router-dom'
+import { useState } from "react";
 
 export default function ItemDetail({ producto }) {
-  const onAdd = (count) => {
-    //Se hace una funcion para que ItemCount reciba como parametro "onAdd", la cual suma los productos al carrito
-    count == 1
-      ? alert(`Se agregó ${count} producto al carrito`)
-      : alert(`Se agregaron ${count} productos al carrito`);
+
+  const [count, setCount] = useState(1);
+  const [display, setDisplay] = useState(true);
+
+  const sumar = () => {
+    count < stock
+      ? setCount(count + 1)
+      : alert("No puedes agregar más productos");
   };
-  
-  const { name, imagen, precio } = producto; //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
+
+  const restar = () => {
+    count > 1
+      ? setCount(count - 1)
+      : alert("No puedes solicitar menos de 1 producto");
+  };
+
+  const reset = () => {
+    setCount(1);
+  };
+
+  const onAdd = (count) => {
+    alert(`Agregaste ${count} productos al carrito`);
+    setDisplay(false);
+  };
+
+  const { name, imagen, precio, stock } = producto; //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
   return (
     <>
@@ -25,7 +44,13 @@ export default function ItemDetail({ producto }) {
             incidunt aut ipsum accusamus dolorem.
           </p>
           <p>$ {precio}</p>
-          <ItemCount inicial={1} stock={5} onAdd={onAdd}></ItemCount>
+          { 
+          display 
+          ?
+          <ItemCount sumar={sumar} restar={restar} reset={reset} count={count} onAdd={onAdd}></ItemCount>
+          :
+          <Link to='/cart' className="btn btn-primary" role="button">Finalizar compra</Link>
+          }
           <hr/>
           <Link to='/' className="btn btn-primary" role="button">Volver Atras</Link>
           
