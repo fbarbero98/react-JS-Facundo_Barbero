@@ -30,7 +30,7 @@ function App() {
       <Route path='/category/:id' element={<ItemListContainer />} />
 
       {/* Se muestra solo un producto en particular */}
-      <Route path='/producto/:id' element={<ItemDetailContainer />} />
+      <Route path='/producto/:idProducto' element={<ItemDetailContainer />} />
 
       {/*Muestra el carrito */}
       <Route path='/cart' element={<Cart />} />
