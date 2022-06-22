@@ -6,12 +6,19 @@ import ItemListContainer from './components/ItemListContainer.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import CartProvider from './context/CartContext';
+
+
+
 
 function App() {
 
   return (
     <div className='App'>
+      
       <BrowserRouter>
+      <CartProvider>
+      
       <NavBar />
 
       <Routes>
@@ -30,6 +37,8 @@ function App() {
 
 
       </Routes>
+
+      </CartProvider>
       </BrowserRouter>
     </div>);
 }

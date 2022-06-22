@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-export default function ItemCount({ sumar, restar, reset, count, onAdd }) {
+export default function ItemCount({ sumar, restar, quantity, onAdd }) {
 
 
   return (
     <div>
       <button type="button" className="js-cart-quantity-btn cart-item-btn btn" onClick={restar}>-</button>
-      <span>{count}</span>
+      <span>{quantity}</span>
       <button type="button" className="js-cart-quantity-btn cart-item-btn btn" onClick={sumar}>+</button>
       <br />
-      <button onClick={() => {onAdd(count);reset();}}>Agregar al carrito</button>
+      <button onClick={() => {onAdd(quantity);}}>Agregar al carrito</button>
     </div>
   );
 }

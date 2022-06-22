@@ -32,7 +32,7 @@ function NavBar() {
                 <li><Link to='/category/Deportes' className="dropdown-item" >Deportes</Link></li>
               </ul>
             </li>
-            <Link to={`/producto`} className="nav-link" > <CartWidget items={4}/></Link>
+            <Link to={`/cart`} className="nav-link" > <CartWidget /></Link>
           </ul>
         </div>
       </div>
