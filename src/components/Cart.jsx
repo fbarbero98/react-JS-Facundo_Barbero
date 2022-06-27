@@ -22,20 +22,20 @@ export default function Cart() {
               <th scope="col">Eliminar</th>
               <th scope="col">Total</th>
         </tr>
-        {cart.map((item, index) => {return (<tr key={index}>
+        {cart.map((item, index) => {return (<tr className="align-middle" key={index}>
             <td>{item.name}</td>
             <td><img width="200" height="100"src={item.imagen}></img></td>
             <td>{item.quantity}</td>
             <td>$ {item.precio}</td>
-            <td><button onClick={() => deleteItem(item.id)} type="button" className="btn btn-danger btn-sm">Eliminar</button></td>
+            <td><button onClick={() => deleteItem(item.id)} type="button" className="btn btn-danger">Eliminar</button></td>
             <td>$ {item.precio * item.quantity}</td>
             </tr>
              )})}
          </thead>
          <thead>
           <tr className="table-success m-2">
-            <th scope='row'colSpan={3}> PRECIO TOTAL: </th>
-              <td colSpan={3}> ${getItemPrice()}</td>
+            <th scope='row'colSpan={2}> PRECIO TOTAL: </th>
+              <td colSpan={4}> ${getItemPrice()}</td>
           </tr>
          </thead>
 
