@@ -33,8 +33,8 @@ export default function CartProvider({ children }) {
 
   //deleteItem borra el item seleccionado
   const deleteItem = (id) => {
-    return cart.filter(prod => prod.id !== id) //retorna un array con todos los productos que no tengan el id que se le pasa por parametro
-
+   const newCart = cart.filter(prod => prod.id !== id) //retorna un array con todos los productos que no tengan el id que se le pasa por parametro
+  setCart(newCart)
   };
 
   //emptyCart vacia el carrito, se le pone un array vacio

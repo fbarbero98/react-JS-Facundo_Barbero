@@ -27,7 +27,7 @@ function App() {
       <Route path='/' element={<ItemListContainer />} />
 
       {/* Se muestra solo los productos filtrados por categoria*/}
-      <Route path='/category/:id' element={<ItemListContainer />} />
+      <Route path='/category/:idCategory' element={<ItemListContainer />} />
 
       {/* Se muestra solo un producto en particular */}
       <Route path='/producto/:idProducto' element={<ItemDetailContainer />} />

@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 export default function ItemListContainer({ props }) {
   const [productos, setProductos] = useState([]);  //Este es el estado de los productos, el cual es un array vacio hasta que se complete el fetch
   const [loading, setLoading] = useState(false); //Este es un loading, el cual esta para que se muestre mientras se hace el fetch, este loading cuando se hace el useEffect, pasa a estar en true.
-  const {id} = useParams();
-  console.log(id)
+  const {idCategory} = useParams();
+  console.log(idCategory)
 
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ItemListContainer({ props }) {
         "../../games.json" //Aca esta el fetch, el cual recopila datos de un json
       )
         .then((res) => res.json()) //res es el "result" de la promesa, el cual hay que transformar en un json
-        .then((data) => (!id) ? setProductos(data) : setProductos(data.filter(prod => prod.category == id))) //Si el id del useParams == undefined, entonces set productos son todos los productos, si tiene un id entonces los productos se muestran solo los que la categoria coincida con el id
+        .then((data) => (!idCategory) ? setProductos(data) : setProductos(data.filter(prod => prod.category == idCategory))) //Si el id del useParams == undefined, entonces set productos son todos los productos, si tiene un id entonces los productos se muestran solo los que la categoria coincida con el id
         .catch((error) => console.error("Error:", error))
         .finally(setLoading(false)); //El finally lo que hace es que cuando se termine la promesa, el "loading" vuelva a false
         
@@ -28,7 +28,7 @@ export default function ItemListContainer({ props }) {
       // para simular MAS el delay del servidor, ya que el json responde rapido, SACAR esta linea para un uso real.
       getProductos()
     }, 2500);
-  }, [id]); //Cada vez que el id de la ruta cambie, se ejecuta el useEffect
+  }, [idCategory]); //Cada vez que el id de la ruta cambie, se ejecuta el useEffect
 
   
 
