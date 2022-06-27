@@ -11,9 +11,9 @@ export default function Cart() {
     {
       cart.length > 0
       ? 
-
-      <table className="table">
-        <thead className='table-dark'>
+      <div className="m-2">
+      <table className="table table-dark table-hover  border">
+        <thead>
         <tr>
               <th scope="col">Item</th>
               <th scope="col">Cantidad</th>
@@ -31,13 +31,14 @@ export default function Cart() {
              )})}
          </thead>
          <thead>
-          <tr>
+          <tr className="table-success m-2">
             <th scope='row'colSpan={3}> PRECIO TOTAL: </th>
               <td colSpan={2}> ${getItemPrice()}</td>
           </tr>
          </thead>
 
         </table>
+        </div>
         
       :
       <div>El carrito esta vacio</div>
