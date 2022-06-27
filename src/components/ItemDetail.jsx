@@ -43,7 +43,7 @@ export default function ItemDetail({ producto }) {
 
   return (
     <>
-      <div className="row g-0 border rounded overflow-hidden flex-row mb-4 h-250 position-relative">
+      <div className="row g-0 border rounded overflow-hidden flex-row mb-4 h-250 position-relative m-3">
         <div className="col p-4 d-flex flex-column position-static">
           <h3 className="mb-0">{name}</h3>
           <hr/>
