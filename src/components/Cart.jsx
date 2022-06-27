@@ -22,6 +22,7 @@ export default function Cart() {
               <th scope="col">Eliminar</th>
               <th scope="col">Total</th>
         </tr>
+
         {cart.map((item, index) => {return (<tr className="align-middle" key={index}>
             <td>{item.name}</td>
             <td><img width="200" height="100"src={item.imagen}></img></td>
