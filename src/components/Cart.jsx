@@ -16,7 +16,7 @@ export default function Cart() {
         <thead>
         <tr>
               <th scope="col">Item</th>
-              <th scope='col'>Imagen</th>
+              <th scope="col">Imagen</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Precio</th>
               <th scope="col">Eliminar</th>
@@ -35,7 +35,7 @@ export default function Cart() {
          </thead>
          <thead>
           <tr className="table-success m-2">
-            <th scope='row'colSpan={2}> PRECIO TOTAL: </th>
+              <th colSpan={2}> PRECIO TOTAL : </th>
               <td colSpan={4}> ${getItemPrice()}</td>
           </tr>
          </thead>
