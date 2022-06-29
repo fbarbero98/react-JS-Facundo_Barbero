@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import CartProvider from './context/CartContext';
+import Checkout from './components/Checkout';
 
 
 
@@ -34,6 +35,9 @@ function App() {
 
       {/*Muestra el carrito */}
       <Route path='/cart' element={<Cart />} />
+
+      {/*Muestra la checkout*/}
+      <Route path='/checkout' element={<Checkout />} />
 
 
       </Routes>

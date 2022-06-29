@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 
 export default function Cart() {
   
@@ -41,7 +42,10 @@ export default function Cart() {
          </thead>
 
         </table>
+        <hr/>
+        <Link to='/checkout' className="btn btn-primary" role="button">Finalizar Compra</Link>
         </div>
+
         
       :
       <div>El carrito esta vacio</div>
