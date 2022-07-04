@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import CartProvider from './context/CartContext';
 import Checkout from './components/Checkout';
+import Footer from './components/Footer';
 
 
 
@@ -41,6 +42,7 @@ function App() {
 
 
       </Routes>
+      <Footer />
 
       </CartProvider>
       </BrowserRouter>

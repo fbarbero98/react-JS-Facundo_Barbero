@@ -19,17 +19,6 @@ export default function ItemListContainer({ props }) {
     setProductos([]);
     setLoading(true); //Hacemos que el loading este en "true"
 
-    /* 
-    // const getProductos = () => {
-    //   fetch(
-    //     "../../games.json" //Aca esta el fetch, el cual recopila datos de un json
-    //   )
-    //     .then((res) => res.json()) //res es el "result" de la promesa, el cual hay que transformar en un json
-    //     .then((data) => (!idCategory) ? setProductos(data) : setProductos(data.filter(prod => prod.category == idCategory))) //Si el id del useParams == undefined, entonces set productos son todos los productos, si tiene un id entonces los productos se muestran solo los que la categoria coincida con el id
-    //     .catch((error) => console.error("Error:", error))
-    //     .finally(setLoading(false)); 
-    */
-
     const db = getFirestore(); //Esto es la conexion a la base de datos, dentro de la const db (funciona xq ya importamos todo)
     const productsCollection = collection(db, "productos"); //al metodo collection le pasamos la dataBase que queremos, y la coleccion que queremos de esa DB (productos en este caso)
 
@@ -57,13 +46,6 @@ export default function ItemListContainer({ props }) {
         .catch((error) => console.error("Error: ", error))
         .finally(setLoading(false)); //El finally lo que hace es que cuando se termine la promesa, el "loading" vuelva a false
     }
-    /* 
-  // };
-     //setTimeout(() => {
-       // para simular MAS el delay del servidor, ya que el json responde rapido, SACAR esta linea para un uso real.
-       //getProductos()
-     //}, 2500); 
-    */
   }, [idCategory]); //Cada vez que el id de la ruta cambie, se ejecuta el useEffect
 
   return (
@@ -74,7 +56,7 @@ export default function ItemListContainer({ props }) {
         </div>
       ) : (
         <ItemList productos={productos} />
-      )}{" "}
+      )}
       {/*si el loading es true, se muestra el div, sino se ejecuta el ItemList */}
     </>
   );

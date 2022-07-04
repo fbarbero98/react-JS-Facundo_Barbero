@@ -4,7 +4,7 @@ import "./ItemList.css"
 
 export default function ItemList({productos}) { //ItemList recibe como parametro el estado "productos" de ItemListContainer
   return (
-    <div className='gridAuto'>
+    <div className='gridAuto justify-content-center'>
         {productos?.map(producto => <Item key={producto.id} producto={producto}/>)} 
     </div>
   )

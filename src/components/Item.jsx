@@ -12,7 +12,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
   console.log(name) //Ilustrativo para ver el juego que sale por consola
   
   return (
-  <div className="card w-auto h-150">
+  <div className="card w-auto">
     <img className="card-img-top img-thumbnail" src={imagen} alt="Card image cap" />
     <div className="card-body">
       <h5 className="card-title">{name}</h5>

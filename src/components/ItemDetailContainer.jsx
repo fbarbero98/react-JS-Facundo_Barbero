@@ -13,17 +13,6 @@ export default function ItemDetailContainer() {
   useEffect(() => {
     setLoading(true);
 
-    /* 
-    // const getProductos = () => {
-    // fetch(
-    //     "../../games.json" //Aca esta el fetch, el cual recopila datos del json
-    //   )
-    //     .then((res) => res.json())
-    //     .then((data) => setProducto(data.find(prod => prod.id == idProducto))) //data.find busca solo el producto cuyo ID coincida con el ID del useParams, y se lo asigna a SetProducto
-    //     .catch((error) => console.error("Error:", error))
-    //     .finally(setLoading(false))
-    // }
-    */
     const db = getFirestore(); //Llamamos a la base de datos
     const productRef = doc(db, "productos", idProducto); //En productRef guardamos la referencia del producto, y le pasamos como parametros la DB, la coleccion, y el IdProducto del UseParams
     getDoc(productRef) //el metodo getDoc nos trae un producto (el que guardamos en productRef), y es una promesa, x lo que se le pone un .then
@@ -34,13 +23,6 @@ export default function ItemDetailContainer() {
       .catch((error) => console.error("Error:", error))
       .finally(setLoading(false));
     //En ILC traemos una coleccion y de ahi tenemos que filtrar por categoria.  Aca estamos trayendo directamente un solo documento que coinicda con el idProducto. Por eso no hacemos nignun if
-
-    /*
-    // setTimeout(() => {
-    //   // para simular MAS el delay del servidor, ya que la API responde rapido, SACAR esta linea para un uso real.
-    //   getProductos()
-    // }, 2500);
-    */
   }, [idProducto]);
 
   return (

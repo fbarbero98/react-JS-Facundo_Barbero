@@ -16,9 +16,6 @@ function NavBar() {
             <li className="nav-item">
               <Link to='/' className="nav-link active" aria-current="page">Inicio</Link>
             </li>
-            <li className="nav-item">
-              <Link to='/' className="nav-link" >Nosotros</Link>
-            </li>
             <li className="nav-item dropdown">
               <Link to={`/producto`} className="nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Categorias
