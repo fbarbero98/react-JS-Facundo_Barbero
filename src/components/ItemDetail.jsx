@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import { useState } from "react";
 import { useContext } from "react";
 import {CartContext} from "../context/CartContext"
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
 
 export default function ItemDetail({ producto }) {
 
@@ -14,19 +16,32 @@ export default function ItemDetail({ producto }) {
   const [display, setDisplay] = useState(true);
   const {isInCart , addItem} = useContext(CartContext)
 
+const mySwal = withReactContent(Swal)
 
 
 
   const sumar = () => {
     quantity < stock
       ? setQuantity(quantity + 1)
-      : alert("No puedes agregar más productos");
+      : mySwal.fire({
+        title: 'Error!',
+        text: 'No puedes agregar mas productos al carrito',
+        icon: 'error',
+        confirmButtonText: 'Volver'
+    })
+    
+    
   };
 
   const restar = () => {
     quantity > 1
       ? setQuantity(quantity - 1)
-      : alert("No puedes solicitar menos de 1 producto");
+      : mySwal.fire({
+        title: 'Error!',
+        text: 'Debes seleccionar al menos un producto',
+        icon: 'error',
+        confirmButtonText: 'Volver'
+    });
   };
 
   const reset = () => {
@@ -34,7 +49,11 @@ export default function ItemDetail({ producto }) {
   };
 
   const onAdd = (quantity) => {
-    alert(`Agregaste ${quantity} productos al carrito`);
+    mySwal.fire({
+      text: `Se han añadido ${quantity} productos al carrito`,
+      icon: 'success',
+      confirmButtonText: 'Volver'
+  });
     isInCart(id)
     addItem(producto , quantity)
     setDisplay(false);
