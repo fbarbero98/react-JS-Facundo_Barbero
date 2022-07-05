@@ -3,8 +3,8 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className='footer'>
-    <p>pie de pagina - &copy; 2022 - desarrollado por: Barbero Facundo.</p>
+    <footer className='footer bg-dark'>
+    <p>Pie de pagina - &copy; 2022 - desarrollado por: Barbero Facundo. - para: React-JS comision 31205</p>
   </footer>
   )
 }

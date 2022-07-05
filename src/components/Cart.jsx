@@ -55,13 +55,14 @@ export default function Cart() {
             </table>
           </div>
           <hr />
-          <Link to="/checkout" className="btn btn-primary" role="button">
+          <Link to="/" className="btn btn-warning m-1" role="button"> Continuar Comprando</Link>
+          <Link to="/checkout" className="btn btn-primary m-1" role="button">
             Finalizar Compra
           </Link>
         </div>
       ) : (
         <div>
-        <h1 style={{margin: 100}}>¡El carrito esta vacio!</h1>
+        <h1 className="m-5">¡El carrito esta vacio!</h1>
         <Link to="/" className="btn btn-primary">¡Presione aqui para ver nuestro catalogo!</Link>
         </div>
       )}

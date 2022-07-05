@@ -27,6 +27,7 @@ function NavBar() {
                 <li className="dropdown-divider"></li>
                 <li><Link to='/category/Arcade' className="dropdown-item">Arcade</Link></li>
                 <li><Link to='/category/Deportes' className="dropdown-item" >Deportes</Link></li>
+                <li><Link to='/category/Ciencia Ficcion' className="dropdown-item" >Ciencia Ficcion</Link></li>
               </ul>
             </li>
             <Link to={`/cart`} className="nav-link" > <CartWidget /></Link>

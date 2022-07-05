@@ -1,13 +1,9 @@
 import React from 'react'
-import ItemCount from './ItemCount'
 import {Link} from 'react-router-dom'
 
 export default function Item({producto}) { //Por cada producto del map de ItemList, Item recibe ese producto como parametro
   
-  const onAdd = (count) => { //Se hace una funcion para que ItemCount reciba como parametro "onAdd", la cual suma los productos al carrito
-    count == 1 ? alert(`Se agregó ${count} producto al carrito`) : alert(`Se agregaron ${count} productos al carrito`)
-  }
-  const {name , imagen , precio, id} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
+  const {name , imagen , precio, id , category} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
   console.log(name) //Ilustrativo para ver el juego que sale por consola
   
@@ -16,6 +12,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
     <img className="card-img-top img-thumbnail" src={imagen} alt="Card image cap" />
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
+      <h6 className='card-subtitle'>Categoria: {category}</h6>
       <p className="card-text">$ {precio}</p>
     </div>
     <div className="card-footer">

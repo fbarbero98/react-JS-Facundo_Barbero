@@ -44,7 +44,7 @@ export default function CartProvider({ children }) {
 
   // Se usa en el cartWidget, para ver cuantos item tenemos en total en el carrito (la cantidad de items y la cantidad de cada uno)
   const getItemCant = () => {
-return cart.reduce((acum, x) => acum += x.quantity, 0 )    //reduce recibe por parametro una funcion que tiene parametros adentro (acumulador, variable de iteracion). Le damos valor inicial 0 al acumulador para que se sume la cantidad a 0
+return cart.reduce((acum, x) => acum += x.quantity, 0 ) //reduce recibe por parametro una funcion que tiene parametros adentro (acumulador, variable de iteracion). Le damos valor inicial 0 al acumulador para que se sume la cantidad a 0
 
   };
 

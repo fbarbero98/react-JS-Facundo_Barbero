@@ -21,7 +21,9 @@ export default function ItemListContainer({ props }) {
 
     const db = getFirestore(); //Esto es la conexion a la base de datos, dentro de la const db (funciona xq ya importamos todo)
     const productsCollection = collection(db, "productos"); //al metodo collection le pasamos la dataBase que queremos, y la coleccion que queremos de esa DB (productos en este caso)
-
+    function getProducts() {
+      
+    
     if (idCategory) { //Aca hacemos un if, Si el idCategory del useParams == undefined, entonces set productos son todos los productos, si tiene un idCategory entonces se muestran solo los productos que la category coincida con el idCategory
       const q = query(productsCollection, where("category", "==", idCategory));
       getDocs(q)
@@ -43,17 +45,23 @@ export default function ItemListContainer({ props }) {
           );
           //Hacemos un map a cada doc de "docs", y por cada uno hacemos un "spread" para sumar el ID dentro del objeto.
         })
-        .catch((error) => console.error("Error: ", error))
-        .finally(setLoading(false)); //El finally lo que hace es que cuando se termine la promesa, el "loading" vuelva a false
+        .catch((error) => console.error("Error: ", error)); //El finally lo que hace es que cuando se termine la promesa, el "loading" vuelva a false
     }
+  }
+    setTimeout(() => {
+      getProducts()
+      setLoading(false)
+    }, 1000);
   }, [idCategory]); //Cada vez que el id de la ruta cambie, se ejecuta el useEffect
 
   return (
     <>
       {loading ? (
-        <div className="d-flex align-items-center justify-content-center">
-          Loading Videogames...
-        </div>
+        
+         <div className="d-flex align-items-center justify-content-center">
+            <h1 className="m-4">Cargando videojuegos...</h1>
+            <div className="spinner-grow bg-gradient shadow-lg " role="status"></div>
+          </div>
       ) : (
         <ItemList productos={productos} />
       )}
