@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function Checkout() {
   //Los estados son para que se setee el nombre, celular o mail, dependiendo lo que manden a los inputs
@@ -21,22 +23,31 @@ export default function Checkout() {
   const db = getFirestore(); //Con esto llamamos a firestore para conectarnos con el server
   const orderCollection = collection(db, "orders"); //Con esto armamos una coleccion que nosotros queremos guardar en la variable
   //Si la coleccion ya existe, la busca, sino la crea.
-
+  const mySwal = withReactContent(Swal);
   function handleClick() {
-    const order = {
-      //Order va a tener los datos del "ticket"
-      buyer: { name: userName, email: userEmail, phone: userPhone },
-      items,
-      total: getItemPrice(),
-    };
+    if (userName === "" || userEmail === "" || userPhone === "") {
+      mySwal.fire({
+        title: "Error!",
+        text: "Debe completar todos los campos",
+        icon: "error",
+        confirmButtonText: "Volver",
+      });
+    } else {
+      const order = {
+        //Order va a tener los datos del "ticket"
+        buyer: { name: userName, email: userEmail, phone: userPhone },
+        items,
+        total: getItemPrice(),
+      };
 
-    addDoc(orderCollection, order).then(({ id }) => {
-      //Esto suma la order a la coleccion order collection, y despues (como es una promesa) si tiene id, entonces haces el console log y seteas el idOrder (para sacar el formulario)
-      console.log(id);
-      setIdOrder(id);
-    });
-    console.log(order);
-    setCart([])
+      addDoc(orderCollection, order).then(({ id }) => {
+        //Esto suma la order a la coleccion order collection, y despues (como es una promesa) si tiene id, entonces haces el console log y seteas el idOrder (para sacar el formulario)
+        console.log(id);
+        setIdOrder(id);
+      });
+      console.log(order);
+      setCart([]);
+    }
   }
 
   useEffect(() => {
@@ -63,24 +74,112 @@ export default function Checkout() {
   ) : (
     <div>
       <h1>Complete los siguientes datos para terminar su compra</h1>
+      <div className="container w-auto bg-dark">
+        <form className="row text-light m-5 ">
+          <div className="col-md-12 m-2">
+            <label htmlFor="inputUserName" className="form-label">
+              Nombre :{" "}
+            </label>
+            <input
+              type={"text"}
+              required
+              className="form-control"
+              aria-label="Nombre"
+              placeholder="Ingrese su nombre"
+              onChange={(e) => setUserName(e.target.value)}
+            ></input>
+          </div>
 
-      <input
-        onChange={(e) => setUserName(e.target.value)}
-        placeholder="Ingrese su nombre"
-      ></input>
-      {/*Accedemos al evento y del evento extraemos el value (target es porque el valor que necesitamos esta dentro de la prop target) */}
-      <hr />
-      <input
-        onChange={(e) => setUserEmail(e.target.value)}
-        placeholder="Ingrese su e-mail"
-      ></input>
-      <hr />
-      <input
-        onChange={(e) => setUserPhone(e.target.value)}
-        placeholder="Ingrese su numero de telefono"
-      ></input>
-      <hr />
-      <button onClick={() => handleClick()}> Enviar Formularios </button>
+          {/*Accedemos al evento y del evento extraemos el value (target es porque el valor que necesitamos esta dentro de la prop target) */}
+          <div className="col-sm-12 m-2">
+            <label htmlFor="inputEmail4" className="form-label">
+              Email :{" "}
+            </label>
+            <input
+              type={"email"}
+              required
+              className="form-control"
+              id="inputEmail4"
+              placeholder="Ingrese su e-mail"
+              onChange={(e) => setUserEmail(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="col-sm-12 m-2">
+            <label htmlFor="inputPhone4" className="form-label">
+              {" "}
+              Telefono :{" "}
+            </label>
+            <input
+              type={"number"}
+              required
+              className="form-control"
+              id="inputPhone4"
+              placeholder="Ingrese su telefono"
+              onChange={(e) => setUserPhone(e.target.value)}
+            ></input>
+          </div>
+
+          <div className="d-flex justify-content-center">
+            <div className="col-sm-12 m-3 align-content-center">
+              <input
+                type={"submit"}
+                className="btn btn-success"
+                onClick={() => handleClick()}
+              ></input>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
+
+/*<form class="row g-3">
+<div class="row g-3">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="email" className="form-control" id="inputEmail4" placeholder="Ingrese su e-mail" onChange={(e) => setUserEmail(e.target.value)}> </input>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form> */
