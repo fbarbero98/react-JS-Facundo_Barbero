@@ -24,6 +24,22 @@ export default function Checkout() {
   const orderCollection = collection(db, "orders"); //Con esto armamos una coleccion que nosotros queremos guardar en la variable
   //Si la coleccion ya existe, la busca, sino la crea.
   const mySwal = withReactContent(Swal);
+
+  function handleKeyDown(e) {
+    const numeros = "1234567890"
+    if (numeros.includes(e.key)){ //Esto lo que hace es sacar la informacion del evento y asi sabemos que lo que necesitamos para saber que tecla se presiona es "e.key"
+        //Lo que hace este if es, si la tecla que presionamos (e.key) incluye alguino de los numeros (los reconoce como array), entonces se hace el prevent default (no se presiona) y un alert
+        e.preventDefault(); //Esto cancela el evento por defecto (el onkeydown), si asignas otro evento eso no se cancela.
+        mySwal.fire({
+          title: "Error!",
+          text: "No puedes completar este campo con numeros!",
+          icon: "error",
+          confirmButtonText: "Volver",
+        });
+    }
+ }
+
+
   function handleClick() {
     if (userName === "" || userEmail === "" || userPhone === "") {
       mySwal.fire({
@@ -32,7 +48,28 @@ export default function Checkout() {
         icon: "error",
         confirmButtonText: "Volver",
       });
-    } else {
+
+    } else if (userPhone.length < 7) {
+
+        mySwal.fire({
+          title: "Error!",
+          text: "Introduzca un telefono valido (minimo 7 caracteres)",
+          icon: "error",
+          confirmButtonText: "Volver",
+        });
+      return
+    }
+    else if (!userEmail.includes("@")) {
+
+      mySwal.fire({
+        title: "Error!",
+        text: "Introduzca un e-mail valido",
+        icon: "error",
+        confirmButtonText: "Volver",
+      });
+    return
+  }
+    else {
       const order = {
         //Order va a tener los datos del "ticket"
         buyer: { name: userName, email: userEmail, phone: userPhone },
@@ -86,6 +123,7 @@ export default function Checkout() {
               className="form-control"
               aria-label="Nombre"
               placeholder="Ingrese su nombre"
+              onKeyDown={handleKeyDown} 
               onChange={(e) => setUserName(e.target.value)}
             ></input>
           </div>
