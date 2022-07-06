@@ -40,7 +40,7 @@ export default function Checkout() {
  }
 
 
-  function handleClick() {
+  function handleClick(e) {
     if (userName === "" || userEmail === "" || userPhone === "") {
       mySwal.fire({
         title: "Error!",
@@ -48,6 +48,7 @@ export default function Checkout() {
         icon: "error",
         confirmButtonText: "Volver",
       });
+      e.preventDefault()
 
     } else if (userPhone.length < 7) {
 
@@ -57,9 +58,9 @@ export default function Checkout() {
           icon: "error",
           confirmButtonText: "Volver",
         });
-      return
+        e.preventDefault()
     }
-    else if (!userEmail.includes("@")) {
+    else if (!userEmail.includes("@hotmail.com" || "@gmail.com" || "@yahoo.com" || "@facebook.com")){
 
       mySwal.fire({
         title: "Error!",
@@ -67,7 +68,7 @@ export default function Checkout() {
         icon: "error",
         confirmButtonText: "Volver",
       });
-    return
+      e.preventDefault()
   }
     else {
       const order = {
@@ -163,7 +164,7 @@ export default function Checkout() {
               <input
                 type={"submit"}
                 className="btn btn-success"
-                onClick={() => handleClick()}
+                onClick={handleClick}
               ></input>
             </div>
           </div>
