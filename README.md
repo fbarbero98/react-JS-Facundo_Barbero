@@ -68,3 +68,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+------------------------------
+
+
+## DESCRIPCION DEL PROYECTO:
+
+- Este proyecto consta de la simulacion de un e-commerce, utilizado como proyecto final para el curso de ReactJS de CODERHOUSE, comision 31205.
+
+
+## LIBRERIAS USADAS:
+
+- Se usó bootstrap para dar estilos, junto con sweetAlert2, para estilar los alerts.
+
+- Se usó formik, para formularios y su respectiva validacion.
+
+- Se uso firebase como servidor, para cargar los objetos, y recibir las ordenes que los usuarios envien mediante los formularios.
+
+- Se uso react-router-dom para la utilizacion de las rutas, para la navegacion sobre el sitio.
+
+
+
