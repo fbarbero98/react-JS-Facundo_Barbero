@@ -5,7 +5,6 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
   
   const {name , imagen , precio, id , category} = producto //Desestructuramos el producto que recibimos como param, para mejor entendimiento.
 
-  console.log(name) //Ilustrativo para ver el juego que sale por consola
   
   return (
   <div className="card w-auto">
