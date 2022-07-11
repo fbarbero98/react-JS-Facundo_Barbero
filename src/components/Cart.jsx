@@ -2,10 +2,14 @@ import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Cart() {
   const { cart, getItemPrice, deleteItem } = useContext(CartContext);
 
+
+
+  
   return (
     <>
       {cart.length > 0 ? (

@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { createContext } from "react";
+import { createContext , useEffect } from "react";
 
 export const CartContext = createContext();
 const { Provider } = CartContext;
 
 export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ?? []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+  
 
   //isInCart busca el producto elegido, y devuelve true si ya esta en el carrito o false si no
   const isInCart = (productId) => {
@@ -25,21 +30,25 @@ export default function CartProvider({ children }) {
       const cartAuxiliar = [...cart]; //Hacemos una copia del state cart, para no modificarlo directamente.
       cartAuxiliar[productIndex].quantity += quantity; //aca encuentra el indice de producto que matchea con el id de findProduct, y a la quantity de ese item, le suma la quantity que pasamos por parametro
       setCart(cartAuxiliar); //Actualizamos el state original para que el cart sea = al auxiliar
+      
     } 
     else {
       setCart([...cart, newCartItem]); //Si el newCartItem.id NO estaba en el carrito de antes, entonces suma al array cart el nuevo item
     }
+    
   };
 
   //deleteItem borra el item seleccionado
   const deleteItem = (id) => {
    const newCart = cart.filter(prod => prod.id !== id) //retorna un array con todos los productos que no tengan el id que se le pasa por parametro
   setCart(newCart)
+  
   };
 
   //emptyCart vacia el carrito, se le pone un array vacio
   const emptyCart = () => {
     setCart([]);
+    
   };
 
   // Se usa en el cartWidget, para ver cuantos item tenemos en total en el carrito (la cantidad de items y la cantidad de cada uno)

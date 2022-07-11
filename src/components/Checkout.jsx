@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Item from "./Item";
 
 export default function Checkout() {
   //! Estados
@@ -35,7 +36,7 @@ export default function Checkout() {
 
   //! Verificaciones y valor de los formularios
   // La funcion form value le asigna los valores de los formularios a los useStates cuando se cumpla el evento (onClick en el submit)
-  function formValues(e) {
+  function formValues() {
     setUserName(formik.values.name);
     setUserEmail(formik.values.email);
     setUserPhone(formik.values.phone);
@@ -105,12 +106,18 @@ export default function Checkout() {
       items,
       total: getItemPrice(),
     };
-
-    addDoc(orderCollection, order).then(({ id }) => {
-      //Esto suma la order a la coleccion order collection, y despues (como es una promesa) si tiene id, entonces haces el console log y seteas el idOrder (para sacar el formulario)
-      console.log(id);
-      setIdOrder(id);
-    });
+    order.total == 0
+      ? mySwal.fire({
+          title: "Error!",
+          text: "Hubo un error con su orden, vuelva a realizarla por favor",
+          icon: "error",
+          confirmButtonText: "Volver",
+        })
+      : addDoc(orderCollection, order).then(({ id }) => {
+          //Esto suma la order a la coleccion order collection, y despues (como es una promesa) si tiene id, entonces haces el console log y seteas el idOrder (para sacar el formulario)
+          console.log(id);
+          setIdOrder(id);
+        });
     console.log(order);
     setCart([]);
     //}
@@ -128,8 +135,8 @@ export default function Checkout() {
       }))
     );
     setTimeout(() => {
-      console.log(items)
-      console.log(cart)
+      console.log(items);
+      console.log(cart);
     }, 1000);
   }, []); //recordemos que si [] esta vacio entonces el useEffect se aplica solo cuando se renderiza la pag por primera vez
 
@@ -140,6 +147,18 @@ export default function Checkout() {
       <h1>¡Su orden ha sido realizada!</h1>
       <h2>Su orden de compra es : {idOrder}</h2>
       <hr />
+      <h3>Productos:</h3>
+      {items.map((producto) => (
+        <div className="container w-auto bg-dark text-light">
+          <hr />
+          <h5 key={producto.videogame} className="m-2">
+            <p className="m-2">Videojuego: {producto.videogame}</p>
+            <hr /> <p className="m-2">Precio: ${producto.price}</p>
+            <p className="m-2">Cantidad: {producto.quantity}</p>
+            <hr/>
+          </h5>
+        </div>
+      ))}
       <Link to="/" className="btn btn-primary" role="button">
         Realizar una nueva orden
       </Link>
@@ -196,14 +215,16 @@ export default function Checkout() {
               onChange={formik.handleChange}
               value={formik.values.phone}
             ></input>
-            {formik.errors.phone && <div color="red">{formik.errors.phone}</div>}
+            {formik.errors.phone && (
+              <div color="red">{formik.errors.phone}</div>
+            )}
           </div>
           <div className="d-flex justify-content-center">
             <div className="col-sm-12 m-3 align-content-center">
               <input
                 type="submit"
                 className="btn btn-success"
-                onClick={formValues}
+                onClick={formValues} //ver esto
                 onChange={formik.handleChange}
               ></input>
             </div>
