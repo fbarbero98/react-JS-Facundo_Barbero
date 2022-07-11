@@ -86,7 +86,6 @@ export default function Checkout() {
     //Una vez hechas las validaciones, el onSubmit ejecuta lo siguiente
 
     onSubmit: (values) => {
-      console.log(values);
 
       if (userName && userEmail && userPhone) {
         handleClick();
@@ -115,10 +114,10 @@ export default function Checkout() {
         })
       : addDoc(orderCollection, order).then(({ id }) => {
           //Esto suma la order a la coleccion order collection, y despues (como es una promesa) si tiene id, entonces haces el console log y seteas el idOrder (para sacar el formulario)
-          console.log(id);
+
           setIdOrder(id);
         });
-    console.log(order);
+
     setCart([]);
     //}
   }
@@ -134,10 +133,6 @@ export default function Checkout() {
         quantity: doc.quantity,
       }))
     );
-    setTimeout(() => {
-      console.log(items);
-      console.log(cart);
-    }, 1000);
   }, []); //recordemos que si [] esta vacio entonces el useEffect se aplica solo cuando se renderiza la pag por primera vez
 
   //!------------------------------- fin de la orden

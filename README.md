@@ -89,4 +89,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Se uso react-router-dom para la utilizacion de las rutas, para la navegacion sobre el sitio.
 
 
+## PROJECT DESCRIPTION:
+
+- This project consists on an e-commerce simulation. Actually used as a final project for CODERHOUSE ReactJS course. (Commition 31205)
+
+## USED LIBRARIES:
+
+- For styling i used Bootstrap library as for alert styling i used sweetAlert2.
+
+- Formik library, was used to implement forms and it's respective validation.
+
+- Firebase (Firestore database in particular), was used as a server, to upload and download the objects. And to recieve info completed on the formularies, to create orders.
+
+- react-router-dom was used for routing in the project, to be able to navigate.
 
