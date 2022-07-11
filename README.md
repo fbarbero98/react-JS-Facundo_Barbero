@@ -91,7 +91,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## PROJECT DESCRIPTION:
 
-- This project consists on an e-commerce simulation. Actually used as a final project for CODERHOUSE ReactJS course. (Commition 31205)
+- This project consists on an e-commerce simulator. Actually used as a final project for CODERHOUSE ReactJS course. (Commition 31205)
 
 ## USED LIBRARIES:
 
