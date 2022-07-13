@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
       <div className="container-fluid">
-        <Link to='/' className="navbar-brand" ><img src={logo} width="40 rem" height="40 rem" alt='logo'/>Logo</Link>
+        <Link to='/' className="navbar-brand" ><img src={logo} width="40 rem" height="40 rem" alt='logo'/>JS GAMING</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
