@@ -7,7 +7,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
 
   
   return (
-  <div className="card w-auto">
+  <div className="card w-auto m-1">
     <img className="card-img-top img-thumbnail" src={imagen} alt="Card image cap" />
     <div className="card-body">
       <h5 className="card-title">{name}</h5>
@@ -15,7 +15,7 @@ export default function Item({producto}) { //Por cada producto del map de ItemLi
       <p className="card-text">$ {precio}</p>
     </div>
     <div className="card-footer">
-    <Link to={`/producto/${id}`} className="btn btn-primary" role="button">Ver Detalles</Link>  {/*Este link lo que hace es cambiar el :id del useParams de ItemDetailContainer, entonces, cuando el id cambia se ejecuta el useEffect */}
+    <Link to={`/producto/${id}`} className="btn btn-primary card-textS" role="button">Ver Detalles</Link>  {/*Este link lo que hace es cambiar el :id del useParams de ItemDetailContainer, entonces, cuando el id cambia se ejecuta el useEffect */}
     </div>
   </div>
 
