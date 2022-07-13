@@ -3,7 +3,7 @@
     display: grid;
     gap: 1rem;
     margin: 1rem;
-    grid-auto-rows: 22rem;
+    grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fill,minmax(min(100%,15rem),1fr));
     height: 95%;
     margin-bottom: 3rem;
